@@ -291,13 +291,13 @@ int main() {
     printf("\n--- Part 2: Fibonacci with Depth Tracking ---\n");
     // TODO: Call fibonacci multiple times and track max_depth
     
-    fibonacci(5, 0);
+    fibonacci(3, 0);
     
     printf("\n--- Part 3: Stack Overflow Demo (comment out after testing!) ---\n");
     // TODO: Call infinite_recursion (will crash - that's expected)
     //printf("Attempting infinite recursion...\n");
     //infinite_recursion(0);  // WILL CRASH - comment out after observing!
-    
+
     printf("\n--- Part 3: Safe Recursion (Fixed Version) ---\n");
     // TODO: Call safe_recursion with a reasonable max depth
     

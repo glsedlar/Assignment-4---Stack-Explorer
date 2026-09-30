@@ -1,0 +1,29 @@
+Stack Mechanics
+When running the recursive factorial function, the print statements started by entering the biggest factorial, then the next biggest, 
+until “Entering factorial(1)” and then immediately “Base case reached”, and the factorials worked back up to the original factorial 
+entered. With the Fibonacci function, the process looked different, as the depth was increasing and decreasing depending on the value 
+of n, but the print statements were able to help me track how far down the recursive functions were going. For the stack overflow, 
+I didn’t get an error message in the terminal, but the output got all the way to “Call 42618” until it stopped printing output, 
+including Parts 4-5. Evidently, the program ran out of space to function and crashed. The stack stores the function parameter, return 
+address (where to go after the function finishes), local variables, and the saved registers. This is seen in part 1, as the stack grows 
+as value for n decreases, until it hits 1 and unravels, “popping” each portion of the stack and returning a value to the previous 
+iteration, until the original function call is completed.
+
+Recursion Costs
+The Fibonacci sequence uses more stack space because for each Fibonacci call with n <= 1, the Fibonacci function is recursively called 
+twice. For example, with the value 3, the main function calls factorial(3), finds it is higher than 1, and then calls factorial(2), sees 
+it is higher than 1, and calls factorial(1). At this point, the if statement confirms that n = 1, says that the base case is reached, 
+and the 3 iterations of the recursive function are unraveled to give the result. However, for the Fibonacci function, with the value 3, 
+the function finds that 3 is greater than 1, and calls both fibonacci(2, 1) and fibonacci(1, 1). fibonacci(2,1) also call two more 
+functions: fibonacci(1, 2) and fibonacci(0, 2). The remaining three functions (fibonacci(1,1), fibonacci(1,2), and fibonacci(0,2) all 
+have n<=1, so they return n). Where factorial(3) required 3 iterations, Fibonacci(3,0) called 5 functions; these numbers would grow 
+apart further as the value of n increases. Python likely limits recursion depth so that if a complicated recursive function is used, or 
+an extensive branching system is being analyzed, the program doesn’t crash; without that limit, depending on the function, it could 
+crash easily.
+
+Function Pointers and Callbacks
+Function points enable callbacks by allowing functions as parameters. This allows more flexible code by allowing the same function call 
+in the main portion to have different structure based on the parameter passed. Callback patterns are used for actions like pressing a 
+key on the keyboard or clicking a button. Callbacks are more flexible than direct function calls, and allow less code for the same 
+purpose; in the notes, there was an example where three separate functions were defined and called (took a lot of code even though they 
+were very similar), but these could be combined in a callback.
